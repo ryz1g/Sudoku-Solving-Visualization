@@ -7,7 +7,6 @@ import base64
 
 from kivy.config import Config
 Config.set('graphics', 'resizable', False)
-#Config.set('kivy', 'window_icon', 'Icons/top_icon.png')
 
 from kivy.core.window import Window
 from kivy.app import App
@@ -37,9 +36,6 @@ def check():
             if row[i].text==' ':
                 continue
             if row[i].text in dict:
-                #print(1)
-                #dict[row[i].text]=dict[row[i].text]+1
-                #print(dict)
                 return False
             dict[row[i].text]=1
         dict.clear()
@@ -50,9 +46,6 @@ def check():
             if bts[j][i].text==' ':
                 continue
             if bts[j][i].text in dict:
-                #print(2)
-                #dict[bts[j][i].text]=dict[bts[j][i].text]+1
-                #print(dict)
                 return False
             dict[bts[j][i].text]=1
         dict.clear()
@@ -63,9 +56,6 @@ def check():
                 if bts[i][j].text==' ':
                     continue
                 if bts[i][j].text in dict:
-                    #print(3)
-                    #dict[bts[i][j].text]=dict[bts[i][j].text]+1
-                    #print(dict)
                     return False
                 dict[bts[i][j].text]=1
         dict.clear()
@@ -80,7 +70,6 @@ def recur(depth):
 
     if max_speed==False:
         time.sleep(speed*0.0001)
-    #print(f"{depth},{len(blanks)}")
     if found==1:
         return
     if depth==len(blanks):
@@ -89,10 +78,8 @@ def recur(depth):
         return
     else:
         for i in range(1,10):
-            #time.sleep(0.0001)
             blanks[depth].text=str(i)
             blanks[depth].color=(0,1,0,1)
-            #print(f"Depth:{depth} Back:{i}")
             if check():
                 recur(depth+1)
             if found==1:
@@ -110,7 +97,6 @@ def solve_sud(buton):
         for but in row:
             if but.text==' ':
                 blanks.append(but)
-    #print(len(blanks))
     buton.disabled=True
     recur(0)
     buton.disabled=False
