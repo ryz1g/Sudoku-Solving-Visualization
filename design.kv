@@ -1,0 +1,51 @@
+#:import Factory kivy.factory.Factory
+
+BoxLayout:
+    orientation:"vertical"
+    size:root.width,root.height
+    BoxLayout:
+        orientation:"horizontal"
+
+        Label:
+            text:"Speed:"+str(speed.value)
+        Slider:
+            id:speed
+            min:1
+            max:1000
+            step:1
+            value:100
+            on_value: app.slid(speed)
+
+    BoxLayout:
+        orientation:"horizontal"
+
+        Button:
+            id:clear
+            text:"Clear!"
+            size_hint:0.3,1
+            #pos_hint:{"center_x":0.5}
+            on_release:
+                app.clear()
+
+        Button:
+            id:start
+            text:"Start"
+            size_hint:0.4,1
+            #pos_hint:{"center_x":0.5}
+            on_release:
+                app.initialize(sud,start.text,start)
+                start.text="Solve"
+
+        Button:
+            id:max
+            text:"Max Speed!"
+            size_hint:0.3,1
+            on_release:
+                app.toggle_max()
+
+    GridLayout:
+        id:sud
+        size_hint:1,None
+        size:1,450
+        rows:9
+        cols:9
