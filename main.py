@@ -37,8 +37,6 @@ def check():
         dict.clear()
     for i in range(9):
         for j in range(9):
-            #print(f"{j}-{i}-{bts[j][i].text}")
-            #print(dict)
             if bts[j][i].text==' ':
                 continue
             if bts[j][i].text in dict:
