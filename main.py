@@ -1,9 +1,6 @@
 import kivy
-from datetime import datetime
 import threading
 import time
-import socket
-import base64
 
 from kivy.config import Config
 Config.set('graphics', 'resizable', False)
@@ -16,7 +13,6 @@ from kivy.uix.label import Label
 from kivy.uix.boxlayout import BoxLayout
 from kivy.lang import Builder
 from kivy.uix.button import Button
-from kivy.uix.screenmanager import ScreenManager,Screen
 
 Window.size=(450,550)
 Window.clearcolor = (0/255,0/255,0/255,1)
